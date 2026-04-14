@@ -13,9 +13,8 @@ st.set_page_config(
 # 2. Load the Model (Cached so it doesn't reload on every interaction)
 @st.cache_resource
 def load_qc_model():
-    # Ensure the .h5 file is in the same directory as this app.py script
-    return tf.keras.models.load_model('industrial_defect_model.h5')
-
+    return tf.keras.models.load_model('industrial_defect_model.h5', compile=False)
+    
 model = load_qc_model()
 
 # 3. Image Preprocessing Function
